@@ -5,8 +5,10 @@ export const loginController = async (req,res) => {
 
     const user = req.body
 
-    const result = await userLoginService()
-    console.log(result)
+    console.log(user)
+
+    const result = await userLoginService(user)
+    console.log('userController',result)
 
     if(result.password === user.password){
         
