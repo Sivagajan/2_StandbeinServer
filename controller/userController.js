@@ -1,4 +1,5 @@
 import { userLoginService } from "../services/userService.js"
+import { createToken } from "../util/token.js"
 
 
 export const loginController = async (req,res) => {
@@ -11,7 +12,7 @@ export const loginController = async (req,res) => {
     console.log('userController',result)
 
     if(result.password === user.password){
-        
+        const token = createToken({user: result._id, role: result.roles})
         res.status(200).json({token: token})
     }else{
         res.status(200).json({message: 'Fehler beim Anmelden'})

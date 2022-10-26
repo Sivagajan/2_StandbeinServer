@@ -6,6 +6,7 @@ import { getAllOrderController } from './controller/orderController.js'
 import { getAllProductController } from './controller/productController.js'
 import { loginController } from './controller/userController.js'
 import { encrypt } from './middleware/encryptMiddleware.js'
+import { verifyBearer } from './controller/authController.js'
 
 
 // Falls ihr multer oder den express validator nutzt, importiert diese einfach auch
@@ -25,6 +26,7 @@ app.get('/admin/product',getAllProductController)
 app.get('/admin/order',getAllOrderController)
 
 app.post('/admin',encrypt, loginController)
+app.get('/api/verify',verifyBearer)
 
 // dann werfen wir den Server mal an
 app.listen(PORT, () => console.log('Server runs on Port:', PORT))
