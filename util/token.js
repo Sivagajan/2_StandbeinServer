@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 export const createToken = (claims) => {
-    const token = jwt.sign(claims,process.env.JWT_SECRET, {expiresIn: '10min'})
+    const token = jwt.sign(claims,process.env.JWT_SECRET, {expiresIn: '1h'})
 
     return token
 }

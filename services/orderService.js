@@ -28,4 +28,15 @@ export const changeStatusService = async (req,res) => {
     }
 }
 
+export const addOrderService = async (order) => {
+
+    console.log('service', order)
+
+    const db = await getDb()
+    const result = await db.collection("order").insertOne(order)
+    
+    return result
+
+}
+
 // topseller muss noch gesucht werden

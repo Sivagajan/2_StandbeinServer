@@ -13,7 +13,8 @@ export const getAllProductController = async (req, res) => {
 
 export const addProductController = async (req,res) => {
     try{
-        const adding = await addProductService()
+        const product = req.body
+        const adding = await addProductService(product)
         console.log(adding)
         res.status(200).json(adding)
     }catch(error){
